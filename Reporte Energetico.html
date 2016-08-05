@@ -123,6 +123,11 @@
 		{ id:"9", item:"Initial Perfomance ratio", valor:"78.99" },
 	];
 
+	var config =[
+		{ id:"1", item:"Manufacturer", valor:"126" },
+	];
+
+
 	var salary = [
 	    { "companyA":"480", "companyB":"230", "average":"355", "month":"January" },
 	    { "companyA":"500", "companyB":"210", "average":"355", "month":"February" },
@@ -228,9 +233,9 @@
 		borderless: true,
 		columns:[
 			{ id:"month",	header:{ text:"Month", rowspan:2}, 	width:200, fillspace:1},
-			{ id:"companyA",	header:[{text:"Company A", colspan:2}, "Amount"], template: "#companyA#,000,000",	width:150, fillspace:1},
+			{ id:"companyA",	header:[{text:"A", colspan:2}, "Amount"], template: "#companyA#,000,000",	width:150, fillspace:1},
 			{ id:"quantityA",	header:["","Quantity"],template: "#quantityA#",	width:150, fillspace:1},
-			{ id:"companyB",	header:[{text:"Company B", colspan:2}, "Amount"], template: "#companyB#,000,000",	width:150, fillspace:1},
+			{ id:"companyB",	header:[{text:"B", colspan:2}, "Amount"], template: "#companyB#,000,000",	width:150, fillspace:1},
 			{ id:"quantityB",	header:["","Quantity"],template: "#quantityB#",	width:150, fillspace:1}
 		],
 		select: "cell",
@@ -313,8 +318,8 @@
 			valign:"top",
 			marker:{ width:15, radius:3 },
 			values:[
-				{text:"company A",color:"#23d683"},
-				{text:"company B",color:"#9365f2"}
+				{text:"A",color:"#23d683"},
+				{text:"B",color:"#9365f2"}
 			]
 		},
 		padding:{
@@ -424,7 +429,7 @@
 					select:"row",
 					borderless: true,
 					columns:[
-						{ id:"month",	header:"Mes", 	width:200, fillspace:1, /*sort:"string"*/},
+						{ id:"month",	header:"Month", 	width:200, fillspace:1, /*sort:"string"*/},
 						{ id:"direct", css:"number",	header:"<center>Direct (kWh/m2)</center>", template: "<center>#direct# kWh/m2</center>",	width:200, fillspace:1, /*sort:"int"*/},
 						{ id:"diffuse", css:"number",	header:"<center>Diffuse (kWh/m2)</center>", template: "<center>#diffuse# kWh/m2</center>",	width:200, fillspace:1, /*sort:"int"*/}
 					],
@@ -444,9 +449,9 @@
 		borderless: true,
 		columns:[
 			{ id:"month",	header:{ text:"Month", rowspan:2}, 	width:200, fillspace:1},
-			{ id:"income1",	css:"number", header:[{text:"Company A", colspan:2}, "Expense"], template: "#income1#,000,000",	width:150, fillspace:1},
+			{ id:"income1",	css:"number", header:[{text:"A", colspan:2}, "Expense"], template: "#income1#,000,000",	width:150, fillspace:1},
 			{ id:"expense1", css:"number",	header:["","Income"],template: "#expense1#,000,000",	width:150, fillspace:1},
-			{ id:"income2",	css:"number", header:[{text:"Company B", colspan:2}, "Expense"], template: "#income2#,000,000",	width:150, fillspace:1},
+			{ id:"income2",	css:"number", header:[{text:"B", colspan:2}, "Expense"], template: "#income2#,000,000",	width:150, fillspace:1},
 			{ id:"expense2", css:"number", header:["","Income"],template: "#expense2#,000,000",	width:150, fillspace:1}//,
 			//{ id:"empty",	header:["&nbsp;","&nbsp;"], template: ""}
 		],
@@ -765,8 +770,8 @@
 				{view:"segmented", id:"chart_filter", minWidth: 375, optionWidth:120, options:[{id:1, value: "Per Company"}, {id:2, value:"Comparative"}], align:"center", multiview:true, height:35},
 				{},
 				{view:"richselect", id:"year_filter",width: 350, hidden:true, inputWidth:300, align:"right", label:"Group by..", labelAligh:"right", value:"B", options:[
-					{id:"A", value:"Company"}, {id:"B", value:"Year (Total sales)"}, {id:"C", value:"Year (Max sales)"},
-					{id:"D", value:"Year (Min sales)"}, {id:"E", value:"Avarage Sales"}
+					{id:"A", value:"Config"}, {id:"B", value:"Year (Total)"}, {id:"C", value:"Year (Max)"},
+					{id:"D", value:"Year (Min)"}, {id:"E", value:"Average"}
 				]
 				}
 			]},
