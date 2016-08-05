@@ -111,6 +111,17 @@
 		{ income1:"30", expense1:"45", income2:"63", expense2:"51", income3:"93", expense3:"96", month:"December" }
 	];
 
+	var resultados =[
+		{ id:"1", item:"Total module count", valor:"126" },
+		{ id:"2", item:"Peak power", valor:"31.5" },
+		{ id:"3", item:"Yearly DC production", valor:"58430" },
+		{ id:"4", item:"Yearly AC production", valor:"53838" },
+		{ id:"5", item:"Yearly needs", valor:"159671" },
+		{ id:"6", item:"DC specific production", valor:"1855" },
+		{ id:"7", item:"AC specific production", valor:"1709" },
+		{ id:"8", item:"Mean peformance ratio", valor:"75.40" },
+		{ id:"9", item:"Initial Perfomance ratio", valor:"78.99" },
+	];
 
 	var salary = [
 	    { "companyA":"480", "companyB":"230", "average":"355", "month":"January" },
@@ -173,9 +184,9 @@
 			data:[
 				{id:"emonth", index:"1" , value:"Datos Meteorologicos", options:[]},
 				{id:"irrad", index:"2" ,value:"Irradiación Solar horizontal", options:[]},
-				{id:"smonth", index:"3" , value:"Consumo/Demanda Energetica", options:[{id:1, value: "Per Company"}, {id:2, value:"Comparative"}]},
-				{id:"rates", index:"4" ,value:"Configuracion 1", options:[{id:5, value:"Company A"}, {id:6, value:"Company B"}, {id:7, value:"Total"}]},
-				{id:"salary", index:"5" , value:"Configuracion 2", options:[]},
+				{id:"smonth", index:"3" , value:"Consumo/Demanda Energetica", options:[{id:1, value: "Individual"}, {id:2, value:"Comparativo"}]},
+				{id:"rates", index:"4" ,value:"Configuracion", options:[{id:5, value:"Config A"}, {id:6, value:"Config B"}, {id:7, value:"Comparacion"}]},
+				{id:"salary", index:"5" , value:"Resultados", options:[]},
 				{id:"year", index:"6" , value:"Inversion y Costos Iniciales", options:[]}
 			],
 			on:{
@@ -455,7 +466,7 @@
 		},
 		yAxis:{ start:0, step:10, end:100 },
 		legend:{
-			values:[{text:"Income",color:"#58dccd"},{text:"Expense",color:"#a7ee70"}],
+			values:[{text:"Produccion",color:"#58dccd"},{text:"Needs",color:"#a7ee70"}],
 			valign:"bottom",
 			align:"center",
 			width:120,
@@ -485,7 +496,7 @@
 		},
 		yAxis:{ start:0, step:10, end:100 },
 		legend:{
-			values:[{text:"Income",color:"#73c9dd"},{text:"Expense",color:"#69a2f4"}],
+			values:[{text:"Produccion",color:"#73c9dd"},{text:"Needs",color:"#69a2f4"}],
 			valign:"bottom",
 			align:"center",
 			width:120,
@@ -514,7 +525,7 @@
 		},
 		yAxis:{ start:0, step:20, end:200 },
 		legend:{
-			values:[{text:"Income",color:"#23d683"},{text:"Expense",color:"#9365f2"}],
+			values:[{text:"Produccion",color:"#23d683"},{text:"Needs",color:"#9365f2"}],
 			valign:"bottom",
 			align:"center",
 			width:120,
@@ -550,7 +561,7 @@
 						end: 700
 					},
 					legend:{
-						values:[{text:"Company A",color:"#4aa397", markerType: "item"},{text:"Company B",color:"#69ba00", markerType: "item"}, {text:"Average", color:"#de619c", markerType: "item"}],
+						values:[{text:"A",color:"#4aa397", markerType: "item"},{text:"B",color:"#69ba00", markerType: "item"}, {text:"Average", color:"#de619c", markerType: "item"}],
 						align:"right",
 						valign:"middle",
 						layout:"y",
@@ -608,13 +619,11 @@
 					view: "datatable",
 					borderless: true,
 					columns:[
-						{ id:"month",	header:"Month", 	fillspace:1},
-						{ id:"companyA", css:"number",	header:"Company A", 	fillspace:1},
-						{ id:"companyB", css:"number",	header:"Company B", 	fillspace:1},
-						{ id:"average", css:"number",	header:"Average Salary", 	fillspace:1}
+						{ id:"item",	header:"Variable", 	fillspace:1},
+						{ id:"valor", css:"number",	header:"Valor", 	fillspace:1},
 					],
 					select: "cell",
-					data: salary
+					data: resultados
 
 				}
 			]
