@@ -7,6 +7,8 @@
 
   <link rel="stylesheet" href="http://cdn.webix.com/edge/webix.css" type="text/css">
   <script src="http://cdn.webix.com/edge/webix.js" type="text/javascript"></script>
+	<script type='text/javascript' src='http://cdn.webix.com/extras/pdfjs.js'></script>
+	<script type='text/javascript' src='pdfjs.js'></script>
 	<script type="text/javascript" src="nav.js"></script>
 	<link rel="stylesheet" type="text/css" href="nav.css">
 	<link href="/assets/favicon.ico" rel="shortcut icon" />
@@ -767,6 +769,15 @@
 				view: "toolbar",
 				elements:[
 				{view:"label", id:"header", label:"Mensual"},
+
+				{ view:"button", value:"Export to  PDF", click:function(){
+					/*$$("data").showProgress();*/
+					webix.toPDF($$("$datatable"), {
+						columns:{ rank:true, title:true },
+						filename:"datatable"
+			});
+		}},
+
 				{view:"segmented", id:"chart_filter", minWidth: 375, optionWidth:120, options:[{id:1, value: "Per Company"}, {id:2, value:"Comparative"}], align:"center", multiview:true, height:35},
 				{},
 				{view:"richselect", id:"year_filter",width: 350, hidden:true, inputWidth:300, align:"right", label:"Group by..", labelAligh:"right", value:"B", options:[
@@ -788,13 +799,13 @@
 
 		rows:[
 			{view:"navbar", value:"report"},
-
 			{ type: "space", cols:[ menu, views]}
 		]
 	};
 
 	webix.ready(function(){
 		webix.ui(ui);
+		webix.extend($$("materialData"), webix.ProgressBar);
 
 		$$("sidemenu").select("rates");
 		$$("sidemenu").callEvent("onItemClick", ["rates"]);
