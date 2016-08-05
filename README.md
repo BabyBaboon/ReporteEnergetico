@@ -1,2 +1,2 @@
-# Solar-Concepto
+# Concepto
 Reporte Energia Solar
